@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { ReactComponent as X } from '../../assets/svg/x.svg';
 
+//TODO: Use a type icon instead of empty div
 export default function Alert({ style, options, message, close }) {
   return (
     <Container style={style} onClick={close}>
@@ -31,11 +32,3 @@ const Container = styled.div`
     padding: 13px 13px;
   }
 `;
-
-// const Message = styled.span`
-//   text-align: center;
-// `;
-
-// const XX = styled.div`
-//   cursor: pointer;
-// `;
