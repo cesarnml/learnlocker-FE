@@ -30,7 +30,7 @@ const Books = ({ search, handleSaveMedia, alert }) => {
       .then(res => {
         console.log(res.data);
         setBooks(res.data);
-        setOffset(0);
+        setOffset(12);
         setIsLoading(false);
       })
       .catch(err => console.log(err));
