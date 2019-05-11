@@ -13,7 +13,6 @@ import { setHomeTabIndex } from '../../actions';
 
 class Home extends Component {
   render() {
-    console.log(this.props.location.pathname);
     return (
       <Container>
         <Sidebar />
@@ -130,8 +129,8 @@ const TabWrapper = styled.div`
 
 const Tabs = styled.ul`
   display: flex;
-  position: fixed;
-  height: 135px;
+  outline: 2px solid pink;
+  position: sticky;
   background: rgb(230, 233, 243);
   z-index: 2;
   top: 0;

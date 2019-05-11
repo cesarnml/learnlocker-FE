@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
 import styled from 'styled-components';
@@ -16,16 +16,12 @@ import editSvg from '../../assets/svg/edit.svg';
 import HelpScreen from '../utils/screens/HelpScreen';
 import BookmarkSVG from '../../assets/svg/bookmark-drawing.svg';
 import SharedButton from '../shared';
-import moment, { now } from 'moment';
+import moment from 'moment';
 
 const Bookmarks = props => {
-  const { getPosts } = props;
+  const { getPosts, getUserProfileDetails } = props;
   const [modalOpen, setModalOpen] = useState(false);
   const [editPost, setEditPost] = useState(null);
-
-  // useEffect(() => {
-  //   getPosts();
-  // }, [getPosts]);
 
   const handleTruncateText = (content, limit = 10) =>
     truncateText(content, limit);
@@ -48,8 +44,8 @@ const Bookmarks = props => {
 
   const handleDelete = async postId => {
     await props.deletePost(postId);
-    props.getPosts();
-    props.getUserProfileDetails(props.userId);
+    getPosts();
+    getUserProfileDetails(props.userId);
   };
   const posts = filteredPosts
     .map(post => (
