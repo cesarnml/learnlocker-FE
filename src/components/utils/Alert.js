@@ -3,14 +3,16 @@ import styled from 'styled-components';
 
 import { ReactComponent as X } from '../../assets/svg/x.svg';
 
-export default function Alert({ message, close }) {
+export default function Alert({ style, options, message, close }) {
   return (
-    <Container onClick={close}>
-      <div />
-      <Message>{message}</Message>
-      <XX>
-        <X onClick={close} />
-      </XX>
+    <Container style={style} onClick={close}>
+      {options.type === 'info' && <div />}
+      {options.type === 'success' && <div />}
+      {options.type === 'error' && <div />}
+      <span>{message}</span>
+      <div>
+        <X />
+      </div>
     </Container>
   );
 }
@@ -19,7 +21,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: rgb(3, 177, 45, 0.85);
+  background-color: rgba(3, 177, 45, 0.85);
   color: white;
   cursor: pointer;
   font-weight: 500;
@@ -30,10 +32,10 @@ const Container = styled.div`
   }
 `;
 
-const Message = styled.span`
-  text-align: center;
-`;
+// const Message = styled.span`
+//   text-align: center;
+// `;
 
-const XX = styled.div`
-  cursor: pointer;
-`;
+// const XX = styled.div`
+//   cursor: pointer;
+// `;
